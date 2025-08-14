@@ -1,10 +1,10 @@
 # AI-Powered Food Ordering Assistant  
-This multi-agent system will help with the ordering food process. This system utilizes the restaurants registered on Glovo  to ensure as little as possible is spent searching for what to eat on the website. It will also help streamline the ordering process and facilitate the delivery of promotions quickly.
+This multi-agent system will help with the food ordering process. This system utilises the restaurant listings and menus registered on Glovo to ensure as little time as possible is spent searching for what to eat on the website. It will also help streamline the ordering process and facilitate the identification of food promotions quickly.
 
 
 ## The Problem  
 
-Ordering food online should be simple but it often isn’t.  
+Ordering food online should be simple, but it often isn’t.  
 
 - You’re stuck scrolling through endless menus.  
 - Search tools feel hard to use, and filters rarely capture exactly what you want.  

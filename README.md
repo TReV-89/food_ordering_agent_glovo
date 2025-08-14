@@ -1,5 +1,5 @@
 # AI-Powered Food Ordering Assistant  
-This agent will help with the ordering food process. A case study is conducted on Glovo to ensure as little as possible is spent searching for what to eat on the website. It will also help streamline the ordering process and facilitate the delivery of promotions quickly.
+This multi-agent system will help with the ordering food process. A case study is conducted on Glovo to ensure as little as possible is spent searching for what to eat on the website. It will also help streamline the ordering process and facilitate the delivery of promotions quickly.
 
 
 ## The Problem  

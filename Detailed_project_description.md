@@ -106,43 +106,6 @@ Here’s how the agents interact step by step:
 7. **User Confirmation**: User approves, and the order is placed.  
 
 ---
-graph TD
-    A[User] --> B{Supervisor Agent};
-    B --> C[Query Planning Agent];
-    C --> D[Retrieval Agent];
-    D --> |Search Cached Menu| E[PostgreSQL DB];
-    D --> |Search Live Menus| F[Glovo API];
-    E --> G[Validation Agent];
-    F --> G;
-    G --> |Confirm availability| F;
-    G --> H[Generator Agent];
-    H --> I[Price Agent];
-    I --> J{Final Response};
-    J --> A;
-
-    subgraph The Agents
-        B;
-        C;
-        D;
-        G;
-        H;
-        I;
-    end
-
-    subgraph Data Sources
-        E;
-        F;
-    end
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style G fill:#bbf,stroke:#333,stroke-width:2px
-    style H fill:#bbf,stroke:#333,stroke-width:2px
-    style I fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#cec,stroke:#333,stroke-width:2px
-    style F fill:#cec,stroke:#333,stroke-width:2px
 
 ## 5. Real-World Example Walkthrough
 User: *“Get me a vegetarian pizza under 25,000 UGX.”*
@@ -176,6 +139,7 @@ If our system only relies on a cached database, it risks working with **outdated
 
 ### The Solution
 To prevent this, we implement a **data freshness strategy**:
+
 Below are the different strategies that could be implemented to solve this problem:
 
 1. **API-First Retrieval**  
@@ -183,7 +147,7 @@ Below are the different strategies that could be implemented to solve this probl
    - This ensures the Retrieval Agent always sees the latest prices and availability.  
 
 2. **Scheduled Sync**  
-   - Our PostgreSQL menu database is refreshed at fixed intervals (e.g., every 30 minutes).  
+   - Our menu database is refreshed at fixed intervals (e.g., every 30 minutes).  
    - This reduces API costs while keeping data mostly up to date.  
 
 3. **Hybrid Approach with Validation Agent**  
@@ -216,13 +180,7 @@ Below are the different strategies that could be implemented to solve this probl
 - **API Integration**: Glovo API (primary source of truth for menus, availability, promotions)  
 - **Frontend**:  
   - React (web chat interface)  
-  - React Native (mobile app chat interface)  
-- **Hosting/Infra**:  
-  - Docker + Kubernetes for scaling  
-  - AWS/GCP/Azure for cloud deployment  
-- **Monitoring**:  
-  - Prometheus + Grafana (performance + agent metrics)  
-  - Logging with ELK stack (debugging agent interactions)  
+  - React Native (mobile app chat interface)
 
 ---
 
@@ -232,5 +190,4 @@ The multi-agent approach ensures the system is:
 - **Fast** (no endless scrolling)  
 - **Smart** (understands context/preferences)  
 - **Transparent** (clear prices and promotions)  
-- **Fresh** (menus always up to date)  
-- **Scalable** (can expand beyond food ordering)
+- **Fresh** (menus always up to date) 

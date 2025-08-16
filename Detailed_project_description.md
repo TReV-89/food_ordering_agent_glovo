@@ -168,7 +168,7 @@ Below are the different strategies that could be implemented to solve this probl
 
 ---
 
-## 8. Tech Stack (Refined)
+## 8. Tech Stack
 
 - **Backend**: Python (FastAPI for APIs)  
 - **LLM Orchestration**:  

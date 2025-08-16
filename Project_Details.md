@@ -175,12 +175,10 @@ Below are the different strategies that could be implemented to solve this probl
   - **LangGraph** → for multi-agent coordination and stateful workflows  
   - **LangChain** → for retrieval-augmented queries and tool use  
 - **Database Layer**:  
-  - PostgreSQL (menu cache, structured storage)  
-  - Redis (for fast session/context storage)  
+  - Chromadb 
 - **API Integration**: Glovo API (primary source of truth for menus, availability, promotions)  
 - **Frontend**:  
-  - React (web chat interface)  
-  - React Native (mobile app chat interface)
+  - Streamlit
 
 ---
 

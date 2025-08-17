@@ -107,14 +107,14 @@ Here’s how the agents interact step by step:
 
 ```mermaid
 flowchart LR
-    U[User Input<br/>(types or speaks request)] --> S[Supervisor Agent<br/>(breaks into tasks)]
-    S --> Q[Query Planning Agent<br/>(structures request)]
-    Q --> R[Retrieval Agent<br/>(searches menu & promotions)]
-    R --> G[Generator Agent<br/>(creates natural response)]
-    G --> P[Price Agent<br/>(finalizes cost)]
-    P --> C[User Confirmation<br/>(approve order)]
+    U[User Input\ntypes or speaks request] --> S[Supervisor Agent\nbreaks into tasks]
+    S --> Q[Query Planning Agent\nstructures request]
+    Q --> R[Retrieval Agent\nsearches menu & promotions]
+    R --> G[Generator Agent\ncreates natural response]
+    G --> P[Price Agent\nfinalizes cost]
+    P --> C[User Confirmation\napprove order]
     C --> O[(Order Placed)]
-```
+
 ---
 
 ## 5. Real-World Example Walkthrough

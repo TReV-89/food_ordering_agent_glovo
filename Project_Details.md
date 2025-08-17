@@ -117,10 +117,14 @@ flowchart TD
     style O fill:#FF6347,stroke:#333,stroke-width:2px,stroke-dasharray: 3 3
 
     U["User Input (types request)"] --> S["Supervisor Agent (breaks into tasks)"]
+
+    %% Supervisor connects to all
     S --> Q["Query Planning Agent (structures request)"]
-    Q --> R["Retrieval Agent (searches menu & promotions)"]
-    R --> G["Generator Agent (creates natural response)"]
-    G --> P["Price Agent (finalizes cost)"]
+    S --> R["Retrieval Agent (searches menu & promotions)"]
+    S --> G["Generator Agent (creates natural response)"]
+    S --> P["Price Agent (finalizes cost)"]
+
+    %% Continue workflow
     P --> C["User Confirmation (approve order)"]
     C --> O["Order Placed"]
 

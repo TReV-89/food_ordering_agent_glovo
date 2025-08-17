@@ -106,14 +106,24 @@ Here’s how the agents interact step by step:
 7. **User Confirmation**: User approves, and the order is placed.  
 
 ```mermaid
-flowchart LR
-    U[User Input\ntypes or speaks request] --> S[Supervisor Agent\nbreaks into tasks]
-    S --> Q[Query Planning Agent\nstructures request]
-    Q --> R[Retrieval Agent\nsearches menu & promotions]
-    R --> G[Generator Agent\ncreates natural response]
-    G --> P[Price Agent\nfinalizes cost]
-    P --> C[User Confirmation\napprove order]
-    C --> O[(Order Placed)]
+flowchart TD
+    style U fill:#FFD700,stroke:#333,stroke-width:2px
+    style S fill:#87CEFA,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style Q fill:#FFB6C1,stroke:#333,stroke-width:2px
+    style R fill:#98FB98,stroke:#333,stroke-width:2px
+    style G fill:#FFA07A,stroke:#333,stroke-width:2px
+    style P fill:#DDA0DD,stroke:#333,stroke-width:2px
+    style C fill:#F0E68C,stroke:#333,stroke-width:2px
+    style O fill:#FF6347,stroke:#333,stroke-width:2px,stroke-dasharray: 3 3
+
+    U["User Input (types or speaks request)"] --> S["Supervisor Agent (breaks into tasks)"]
+    S --> Q["Query Planning Agent (structures request)"]
+    Q --> R["Retrieval Agent (searches menu & promotions)"]
+    R --> G["Generator Agent (creates natural response)"]
+    G --> P["Price Agent (finalizes cost)"]
+    P --> C["User Confirmation (approve order)"]
+    C --> O["Order Placed"]
+
 ```
 ---
 

@@ -105,6 +105,7 @@ Here’s how the agents interact step by step:
 6. **Price Agent**: Finalizes the cost.  
 7. **User Confirmation**: User approves, and the order is placed.  
 
+```mermaid
 flowchart LR
     U[User Input<br/>(types or speaks request)] --> S[Supervisor Agent<br/>(breaks into tasks)]
     S --> Q[Query Planning Agent<br/>(structures request)]
@@ -113,7 +114,7 @@ flowchart LR
     G --> P[Price Agent<br/>(finalizes cost)]
     P --> C[User Confirmation<br/>(approve order)]
     C --> O[(Order Placed)]
-
+```
 ---
 
 ## 5. Real-World Example Walkthrough

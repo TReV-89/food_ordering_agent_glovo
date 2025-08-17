@@ -107,7 +107,7 @@ Here’s how the agents interact step by step:
 
 ```mermaid
 flowchart TD
-    style U fill:#FFD700,stroke:#000000,stroke-width:2px
+    style U fill:#FFD700,stroke:#333,stroke-width:2px
     style S fill:#87CEFA,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
     style Q fill:#FFB6C1,stroke:#333,stroke-width:2px
     style R fill:#98FB98,stroke:#333,stroke-width:2px

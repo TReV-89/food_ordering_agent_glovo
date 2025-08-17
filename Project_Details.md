@@ -116,7 +116,7 @@ flowchart TD
     style C fill:#F0E68C,stroke:#333,stroke-width:2px
     style O fill:#FF6347,stroke:#333,stroke-width:2px,stroke-dasharray: 3 3
 
-    U["User Input (types or speaks request)"] --> S["Supervisor Agent (breaks into tasks)"]
+    U["User Input (types request)"] --> S["Supervisor Agent (breaks into tasks)"]
     S --> Q["Query Planning Agent (structures request)"]
     Q --> R["Retrieval Agent (searches menu & promotions)"]
     R --> G["Generator Agent (creates natural response)"]

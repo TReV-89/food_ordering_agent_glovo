@@ -94,10 +94,10 @@ Discount: -1,850 UGX
 
 ---
 
-## 4. Data Flow (How Everything Connects)
+## 4. Data Flow
 Here’s how the agents interact step by step:
 
-1. **User Input**: User types or says what they want.  
+1. **User: Types what they want.
 2. **Supervisor Agent**: Breaks request into tasks.  
 3. **Query Planning Agent**: Structures the request.  
 4. **Retrieval Agent**: Searches menu and promotions.  
@@ -107,7 +107,7 @@ Here’s how the agents interact step by step:
 
 ```mermaid
 flowchart TD
-    style U fill:#FFD700,stroke:#333,stroke-width:2px
+    style U fill:#FFD700,stroke:#000000,stroke-width:2px
     style S fill:#87CEFA,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
     style Q fill:#FFB6C1,stroke:#333,stroke-width:2px
     style R fill:#98FB98,stroke:#333,stroke-width:2px

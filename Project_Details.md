@@ -95,9 +95,9 @@ Discount: -1,850 UGX
 ---
 
 ## 4. Data Flow
-Here’s how the agents interact step by step:
+Agents' step by step interaction:
 
-1. **User: Types what they want.
+1. **User**: Types what they want.
 2. **Supervisor Agent**: Breaks request into tasks.  
 3. **Query Planning Agent**: Structures the request.  
 4. **Retrieval Agent**: Searches menu and promotions.  
@@ -131,7 +131,7 @@ flowchart TD
 ```
 ---
 
-## 5. Real-World Example Walkthrough
+## 5. Example Walkthrough
 User: *“Get me a vegetarian pizza under 25,000 UGX.”*
 
 - **Supervisor Agent**: Recognizes dish = pizza, dietary preference = vegetarian, budget = 25,000 UGX.  
@@ -144,7 +144,7 @@ User: *“Get me a vegetarian pizza under 25,000 UGX.”*
 ---
 
 ## 6. Why Multi-Agent Design?
-Instead of one giant LLM doing everything, splitting into agents offers:
+Instead of one giant LLM doing everything, dividing tasks amongst agents offers:
 - **Specialization** → Each agent does one job well.  
 - **Flexibility** → Easier to swap or upgrade parts (e.g., new retrieval API).  
 - **Transparency** → Easier to debug when errors occur.

@@ -114,7 +114,7 @@ flowchart LR
     G --> P[Price Agent\nfinalizes cost]
     P --> C[User Confirmation\napprove order]
     C --> O[(Order Placed)]
-
+```
 ---
 
 ## 5. Real-World Example Walkthrough

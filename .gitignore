@@ -1,1 +1,3 @@
-.venv
+virtenv
+.env
+__pycache__

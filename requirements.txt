@@ -1,0 +1,10 @@
+streamlit
+python-dotenv
+langchain-google-genai
+chromadb
+langgraph
+langgraph_supervisor
+google-generativeai
+langchain_core
+langsmith
+fastapi[standard]

@@ -5,7 +5,7 @@ This document explains in detail how the food ordering project will work. It bre
 ---
 
 ## 1. Purpose of the Project
-The goal is to simplify food ordering by replacing endless menu scrolling and clunky filters with a natural, conversational assistant powered by LLMs. Instead of navigating menus manually, users will **chat** with the system to find, customize, and order food.
+The goal is to simplify food ordering by replacing endless menu scrolling and clunky filters with a natural, conversational assistant powered by LLMs. Instead of navigating menus manually, users will chat with the system to find, customize, and order food.
 
 ---
 ## 2. User Cases

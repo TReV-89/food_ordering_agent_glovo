@@ -208,9 +208,4 @@ Below are the different strategies that could be implemented to solve this probl
 ---
 
 ## 10. Summary
-This project turns **menu navigation into natural conversation**.  
-The multi-agent approach ensures the system is:  
-- **Fast** (no endless scrolling)  
-- **Smart** (understands context/preferences)  
-- **Transparent** (clear prices and promotions)  
-- **Fresh** (menus always up to date) 
+This project transforms menu navigation into a natural, conversational experience. By using a multi-agent approach, the system becomes fast, eliminating the need for endless scrolling; smart, with the ability to understand user context and preferences; transparent, by clearly displaying prices and promotions; and fresh, ensuring menus are always up to date.

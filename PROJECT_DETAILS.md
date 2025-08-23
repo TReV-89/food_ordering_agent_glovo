@@ -84,20 +84,27 @@ flowchart TD
 ## 6. Example Walkthrough
 User: *“Get me a vegetarian pizza under 25,000 UGX.”*
 
-- **Supervisor Agent**: Recognizes dish = pizza, dietary preference = vegetarian, budget = 25,000 UGX.  
-- **Query Planning Agent**: Converts request → `{ "dish": "pizza", "diet": "vegetarian", "max_price": 25000 }`  
-- **Retrieval Agent**: Finds *“Vegetarian Delight Pizza – 23,000 UGX at Pizza Hub”*.  
-- **Generator Agent**: Responds *“Pizza Hub has a Vegetarian Delight Pizza for 23,000 UGX. Should I add it to your cart?”*  
-- **Price Agent**: Confirms final cost = 23,000 UGX + 2,000 UGX delivery = 25,000 UGX.  
-- **User**: Says yes → order confirmed.  
+**Supervisor Agent**: Recognizes dish = pizza, dietary preference = vegetarian, budget = 25,000 UGX.
+
+**Query Planning Agent**: Converts request → `{ "dish": "pizza", "diet": "vegetarian", "max_price": 25000 }` 
+
+**Retrieval Agent**: Finds *“Vegetarian Delight Pizza – 23,000 UGX at Pizza Hub”*.  
+
+**Generator Agent**: Responds *“Pizza Hub has a Vegetarian Delight Pizza for 23,000 UGX. Should I add it to your cart?”*  
+
+**Price Agent**: Confirms final cost = 23,000 UGX + 2,000 UGX delivery = 25,000 UGX.  
+
+**User**: Says yes → order confirmed.  
 
 ---
 
 ## 7. Why Multi-Agent Design?
 Instead of one giant LLM doing everything, dividing tasks amongst agents offers:
-- **Specialization** → Each agent does one job well.  
-- **Flexibility** → Easier to swap or upgrade parts (e.g., new retrieval API).  
-- **Transparency** → Easier to debug when errors occur.
+**Specialization** → Each agent does one job well.  
+
+**Flexibility** → Easier to swap or upgrade parts (e.g., new retrieval API).  
+
+**Transparency** → Easier to debug when errors occur.
 
 ---
 

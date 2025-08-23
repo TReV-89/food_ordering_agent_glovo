@@ -191,13 +191,13 @@ Below are the different strategies that could be implemented to solve this probl
 
 ## 9. Tech Stack
 
-- **Backend**: Python (FastAPI for APIs)  
-- **LLM Orchestration**:  
-  - LangGraph → for multi-agent coordination and stateful workflows  
-  - LangChain → for retrieval-augmented queries and tool use  
-- **Database Layer**: Chromadb 
-- **API Integration**: Glovo API (primary source of truth for menus, availability, promotions)  
-- **Frontend**: Streamlit
+**Backend**: Python (FastAPI for APIs)  
+**LLM Orchestration**:  
+LangGraph → for multi-agent coordination and stateful workflows  
+LangChain → for retrieval-augmented queries and tool use  
+**Database Layer**: Chromadb 
+**API Integration**: Glovo API (primary source of truth for menus, availability, promotions)  
+**Frontend**: Streamlit
 
 ---
 

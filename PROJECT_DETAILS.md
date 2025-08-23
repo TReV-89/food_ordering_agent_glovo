@@ -40,7 +40,7 @@ User says: *“I’m craving spicy noodles under 20,000 UGX.”*
 - Supervisor detects: (a) food type = noodles, (b) taste = spicy, (c) budget = 20,000 UGX.  
 - It then sends this to the Query Planning Agent.
 
----
+
 
 ### 4.2 Query Planning Agent
 **What it does:**  

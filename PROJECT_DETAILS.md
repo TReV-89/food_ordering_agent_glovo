@@ -1,9 +1,5 @@
 # Detailed Project Explanation: Conversational Food Ordering Assistant
 
-This document explains in detail how the food ordering project will work. It breaks down each component of the multi-agent system, what it does, why it exists, and provides real-world examples.
-
----
-
 ## 1. Purpose of the Project
 The goal is to simplify food ordering by replacing endless menu scrolling and clunky filters with a natural, conversational assistant powered by LLMs. Instead of navigating menus manually, users will chat with the system to find, customize, and order food.
 

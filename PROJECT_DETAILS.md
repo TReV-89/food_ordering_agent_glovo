@@ -28,73 +28,20 @@ The assistant operates as a multi-agent Retrieval-Augmented Generation (RAG) sys
 ## 4. Detailed Agent Breakdown
 
 ### 4.1 Supervisor Agent
-**What it does:**  
-   Oversees the entire conversation flow.  
-   Identifies what the user wants and assigns the right tasks to other agents.  
-
-**Why it exists:**  
-Without a supervisor, agents could overlap or miss steps. The supervisor ensures smooth orchestration.  
-
-**Example:**  
-User says: *“I’m craving spicy noodles under 20,000 UGX.”*  
-- Supervisor detects: (a) food type = noodles, (b) taste = spicy, (c) budget = 20,000 UGX.  
-- It then sends this to the Query Planning Agent.
-
-
+The supervisor oversees the entire conversation flow by identifying what the user wants and assigning the right tasks to other agents. It exists to prevent overlaps or missed steps, ensuring smooth orchestration throughout the interaction. For example, when a user says, “I’m craving spicy noodles under 20,000 UGX,” the supervisor detects the key details—(a) food type = noodles, (b) taste = spicy, and (c) budget = 20,000 UGX—and then passes this structured request to the Query Planning Agent.
 
 ### 4.2 Query Planning Agent
-**What it does:**  
-- Takes the user’s raw request and translates it into a structured query that the Retrieval Agent can understand.  
-
-**Why it exists:**  
-User requests are often vague. This agent removes ambiguity.  
-
-**Example:**  
-Input: *“Spicy noodles under 20,000 UGX”*  
-Output: `{ "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }`
-
+The Query Planning Agent takes the user’s raw request and translates it into a structured query that the Retrieval Agent can understand. It exists because user requests are often vague, and this agent removes ambiguity by converting natural language into clear, machine-readable instructions. For example, if the input is “Spicy noodles under 20,000 UGX”, the agent outputs a structured query such as { "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }.
 
 ### 4.3 Retrieval Agent
-**What it does:**  
-- Searches the menu database or API for items that match the structured query.  
-- Retrieves details such as dish name, price, restaurant, and promotions.  
-
-**Why it exists:**  
-LLMs can’t store all menus. The Retrieval Agent provides **real-time access** to updated menus and deals.  
-
-**Example:**  
-Query: `{ "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }`  
-Result: *“Spicy Chicken Noodles – 18,500 UGX at Wok & Grill (10% off today)”*
-
+The Retrieval Agent searches the menu database or API for items that match the structured query and retrieves details such as the dish name, price, restaurant, and available promotions. It exists because LLMs cannot store all menus, so this agent provides real-time access to updated menus and deals. For example, given the query { "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }, the Retrieval Agent might return a result like “Spicy Chicken Noodles – 18,500 UGX at Wok & Grill (10% off today).”
 
 
 ### 4.4 Generator Agent
-**What it does:**  
-- Converts the retrieved results into natural, conversational text.  
-- Maintains friendly tone and context awareness.  
-
-**Why it exists:**  
-Raw data is not user-friendly. The Generator Agent makes it feel like a real assistant.  
-
-**Example:**  
-Instead of showing JSON results, it responds:  
-*“I found Spicy Chicken Noodles for 18,500 UGX at Wok & Grill. They’re also giving a 10% discount today. Want me to add this to your order?”*
-
-
+The Generator Agent converts the retrieved results into natural, conversational text while maintaining a friendly tone and context awareness. It exists because raw data is not user-friendly, and this agent ensures the interaction feels like a real assistant rather than just a database query. For example, instead of displaying JSON results, it would respond with something like: “I found Spicy Chicken Noodles for 18,500 UGX at Wok & Grill. They’re also giving a 10% discount today. Want me to add this to your order?”
 
 ### 3.5 Price Agent
-**What it does:**  
-- Ensures the final price is clear and accurate.  
-- Calculates totals including delivery fee, discounts, or promotions.  
-
-**Why it exists:**  
-Users care about total cost before confirming. This agent ensures transparency.  
-
-**Example:**  
-Dish price: 18,500 UGX  
-Delivery: 2,000 UGX  
-Discount: -1,850 UGX  
-**Final Price = 18,650 UGX**
+The Pricing Agent ensures that the final price is clear and accurate by calculating totals that include the dish price, delivery fees, discounts, and promotions. It exists because users want to know the exact total cost before confirming an order, making transparency essential. For example, if the dish price is 18,500 UGX, the delivery fee is 2,000 UGX, and a discount of -1,850 UGX is applied, the agent presents the Final Price = 18,650 UGX.
 
 
 ## 5. Data Flow

@@ -8,8 +8,13 @@ This document explains **in detail** how the food ordering project will work. It
 The goal is to **simplify food ordering** by replacing endless menu scrolling and clunky filters with a natural, conversational assistant powered by LLMs. Instead of navigating menus manually, users will **chat** with the system to find, customize, and order food.
 
 ---
+## 2. User Cases
+![Alt text for the image](images/usercase1.1.png)
+![Alt text for the image](images/usercase1.2.png)
+![Alt text for the image](images/usercase1.3.png)
 
-## 2. High-Level Architecture
+---
+## 3. High-Level Architecture
 The assistant operates as a **multi-agent Retrieval-Augmented Generation (RAG) system**. This means instead of one giant model doing everything, multiple specialized agents collaborate, each handling a specific task.
 
 - **Supervisor Agent** – Think of this as the “manager.” It breaks user input into smaller tasks and assigns them to the right agents.
@@ -20,9 +25,9 @@ The assistant operates as a **multi-agent Retrieval-Augmented Generation (RAG) s
 
 ---
 
-## 3. Detailed Agent Breakdown
+## 4. Detailed Agent Breakdown
 
-### 3.1 Supervisor Agent
+### 4.1 Supervisor Agent
 **What it does:**  
 - Oversees the entire conversation flow.  
 - Identifies what the user wants and assigns the right tasks to other agents.  
@@ -37,7 +42,7 @@ User says: *“I’m craving spicy noodles under 20,000 UGX.”*
 
 ---
 
-### 3.2 Query Planning Agent
+### 4.2 Query Planning Agent
 **What it does:**  
 - Takes the user’s raw request and translates it into a structured query that the Retrieval Agent can understand.  
 
@@ -50,7 +55,7 @@ Output: `{ "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }`
 
 ---
 
-### 3.3 Retrieval Agent
+### 4.3 Retrieval Agent
 **What it does:**  
 - Searches the menu database or API for items that match the structured query.  
 - Retrieves details such as dish name, price, restaurant, and promotions.  
@@ -64,7 +69,7 @@ Result: *“Spicy Chicken Noodles – 18,500 UGX at Wok & Grill (10% off today)�
 
 ---
 
-### 3.4 Generator Agent
+### 4.4 Generator Agent
 **What it does:**  
 - Converts the retrieved results into natural, conversational text.  
 - Maintains friendly tone and context awareness.  
@@ -93,11 +98,8 @@ Discount: -1,850 UGX
 **Final Price = 18,650 UGX**
 
 ---
-![Alt text for the image](images/usercase1.1.png)
-![Alt text for the image](images/usercase1.2.png)
-![Alt text for the image](images/usercase1.3.png)
 
-## 4. Data Flow
+## 5. Data Flow
 Agents' step by step interaction:
 
 1. **User**: Types what they want.
@@ -134,7 +136,7 @@ flowchart TD
 ```
 ---
 
-## 5. Example Walkthrough
+## 6. Example Walkthrough
 User: *“Get me a vegetarian pizza under 25,000 UGX.”*
 
 - **Supervisor Agent**: Recognizes dish = pizza, dietary preference = vegetarian, budget = 25,000 UGX.  
@@ -146,7 +148,7 @@ User: *“Get me a vegetarian pizza under 25,000 UGX.”*
 
 ---
 
-## 6. Why Multi-Agent Design?
+## 7. Why Multi-Agent Design?
 Instead of one giant LLM doing everything, dividing tasks amongst agents offers:
 - **Specialization** → Each agent does one job well.  
 - **Flexibility** → Easier to swap or upgrade parts (e.g., new retrieval API).  
@@ -154,7 +156,7 @@ Instead of one giant LLM doing everything, dividing tasks amongst agents offers:
 
 ---
 
-## 7. Handling Menu Updates (Freshness Problem)
+## 8. Handling Menu Updates
 
 ### The Challenge
 Restaurant menus are not static. Items can:
@@ -195,7 +197,7 @@ Below are the different strategies that could be implemented to solve this probl
 
 ---
 
-## 8. Tech Stack
+## 9. Tech Stack
 
 - **Backend**: Python (FastAPI for APIs)  
 - **LLM Orchestration**:  
@@ -207,7 +209,7 @@ Below are the different strategies that could be implemented to solve this probl
 
 ---
 
-## 9. Summary
+## 10. Summary
 This project turns **menu navigation into natural conversation**.  
 The multi-agent approach ensures the system is:  
 - **Fast** (no endless scrolling)  

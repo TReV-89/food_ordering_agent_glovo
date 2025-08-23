@@ -53,7 +53,6 @@ User requests are often vague. This agent removes ambiguity.
 Input: *“Spicy noodles under 20,000 UGX”*  
 Output: `{ "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }`
 
----
 
 ### 4.3 Retrieval Agent
 **What it does:**  
@@ -67,7 +66,7 @@ LLMs can’t store all menus. The Retrieval Agent provides **real-time access** 
 Query: `{ "dish": "noodles", "spice_level": "spicy", "max_price": 20000 }`  
 Result: *“Spicy Chicken Noodles – 18,500 UGX at Wok & Grill (10% off today)”*
 
----
+
 
 ### 4.4 Generator Agent
 **What it does:**  
@@ -81,7 +80,7 @@ Raw data is not user-friendly. The Generator Agent makes it feel like a real ass
 Instead of showing JSON results, it responds:  
 *“I found Spicy Chicken Noodles for 18,500 UGX at Wok & Grill. They’re also giving a 10% discount today. Want me to add this to your order?”*
 
----
+
 
 ### 3.5 Price Agent
 **What it does:**  
@@ -97,7 +96,6 @@ Delivery: 2,000 UGX
 Discount: -1,850 UGX  
 **Final Price = 18,650 UGX**
 
----
 
 ## 5. Data Flow
 Agents' step by step interaction:

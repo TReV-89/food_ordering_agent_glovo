@@ -13,11 +13,11 @@ The goal is to simplify food ordering by replacing endless menu scrolling and cl
 ## 3. High-Level Architecture
 The assistant operates as a multi-agent Retrieval-Augmented Generation (RAG) system. This means instead of one giant model doing everything, multiple specialized agents collaborate, each handling a specific task.
 
-- **Supervisor Agent** – Think of this as the “manager.” It breaks user input into smaller tasks and assigns them to the right agents.
-- **Query Planning Agent** – Refines what the user said into a precise, structured query.
-- **Retrieval Agent** – Looks up menu items, restaurant deals, and promotions from a database or API (e.g., Glovo).
-- **Generator Agent** – Creates a clear, friendly, context-aware response for the user.
-- **Price Agent** – Ensures the user knows the exact cost, including discounts or delivery fees.
+**Supervisor Agent** – Think of this as the “manager.” It breaks user input into smaller tasks and assigns them to the right agents.
+**Query Planning Agent** – Refines what the user said into a precise, structured query.
+**Retrieval Agent** – Looks up menu items, restaurant deals, and promotions from a database or API (e.g., Glovo).
+**Generator Agent** – Creates a clear, friendly, context-aware response for the user.
+**Price Agent** – Ensures the user knows the exact cost, including discounts or delivery fees.
 
 ---
 
@@ -25,8 +25,8 @@ The assistant operates as a multi-agent Retrieval-Augmented Generation (RAG) sys
 
 ### 4.1 Supervisor Agent
 **What it does:**  
-- Oversees the entire conversation flow.  
-- Identifies what the user wants and assigns the right tasks to other agents.  
+   Oversees the entire conversation flow.  
+   Identifies what the user wants and assigns the right tasks to other agents.  
 
 **Why it exists:**  
 Without a supervisor, agents could overlap or miss steps. The supervisor ensures smooth orchestration.  

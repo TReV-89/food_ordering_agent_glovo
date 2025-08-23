@@ -1,11 +1,11 @@
 # Detailed Project Explanation: Conversational Food Ordering Assistant
 
-This document explains **in detail** how the food ordering project will work. It breaks down each component of the multi-agent system, what it does, why it exists, and provides real-world examples.
+This document explains in detail how the food ordering project will work. It breaks down each component of the multi-agent system, what it does, why it exists, and provides real-world examples.
 
 ---
 
 ## 1. Purpose of the Project
-The goal is to **simplify food ordering** by replacing endless menu scrolling and clunky filters with a natural, conversational assistant powered by LLMs. Instead of navigating menus manually, users will **chat** with the system to find, customize, and order food.
+The goal is to simplify food ordering by replacing endless menu scrolling and clunky filters with a natural, conversational assistant powered by LLMs. Instead of navigating menus manually, users will **chat** with the system to find, customize, and order food.
 
 ---
 ## 2. User Cases
@@ -160,19 +160,17 @@ Instead of one giant LLM doing everything, dividing tasks amongst agents offers:
 
 ### The Challenge
 Restaurant menus are not static. Items can:
-- Go **out of stock**  
-- Get **price changes**  
-- Receive **new promotions**  
+- Go out of stock
+- Get price changes 
+- Receive new promotions  
 
-If our system only relies on a cached database, it risks working with **outdated data** (e.g., recommending a dish that no longer exists).
+If our system only relies on a cached database, it risks working with outdated data (e.g., recommending a dish that no longer exists).
 
 ### The Solution
-To prevent this, we implement a **data freshness strategy**:
-
 Below are the different strategies that could be implemented to solve this problem:
 
 1. **API-First Retrieval**  
-   - Whenever possible, menu queries are made **directly against Glovo’s API** (or restaurant APIs).  
+   - Whenever possible, menu queries are made directly against Glovo’s API (or restaurant APIs).  
    - This ensures the Retrieval Agent always sees the latest prices and availability.  
 
 2. **Scheduled Sync**  
@@ -180,7 +178,7 @@ Below are the different strategies that could be implemented to solve this probl
    - This reduces API costs while keeping data mostly up to date.  
 
 3. **Hybrid Approach with Validation Agent**  
-   - If an item is retrieved from the database, the system uses a **Validation Agent** to confirm availability via the live API before showing it to the user.  
+   - If an item is retrieved from the database, the system uses a Validation Agent to confirm availability via the live API before showing it to the user.  
    - If the item is unavailable, the assistant suggests alternatives.  
 
 ### Example
@@ -191,9 +189,9 @@ Below are the different strategies that could be implemented to solve this probl
   *“The Spicy Beef Burger is currently unavailable, but I found a Cheesy Beef Burger instead. Want to try that?”*
 
 ### Where **LangGraph** Helps
-- LangGraph coordinates the **flow between Retrieval and Validation Agents**.  
+- LangGraph coordinates the flow between Retrieval and Validation Agents.  
 - It ensures queries don’t “skip” the freshness check.  
-- If the Validation Agent returns `unavailable`, LangGraph routes the workflow to **alternative item retrieval** before responding to the user.  
+- If the Validation Agent returns `unavailable`, LangGraph routes the workflow to alternative item retrieval before responding to the user.  
 
 ---
 
@@ -201,8 +199,8 @@ Below are the different strategies that could be implemented to solve this probl
 
 - **Backend**: Python (FastAPI for APIs)  
 - **LLM Orchestration**:  
-  - **LangGraph** → for multi-agent coordination and stateful workflows  
-  - **LangChain** → for retrieval-augmented queries and tool use  
+  - LangGraph → for multi-agent coordination and stateful workflows  
+  - LangChain → for retrieval-augmented queries and tool use  
 - **Database Layer**: Chromadb 
 - **API Integration**: Glovo API (primary source of truth for menus, availability, promotions)  
 - **Frontend**: Streamlit

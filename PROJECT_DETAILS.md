@@ -89,7 +89,7 @@ Instead of showing JSON results, it responds:
 - Calculates totals including delivery fee, discounts, or promotions.  
 
 **Why it exists:**  
-Users care about **total cost** before confirming. This agent ensures transparency.  
+Users care about total cost before confirming. This agent ensures transparency.  
 
 **Example:**  
 Dish price: 18,500 UGX  

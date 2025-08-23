@@ -15,7 +15,7 @@ The goal is to simplify food ordering by replacing endless menu scrolling and cl
 
 ---
 ## 3. High-Level Architecture
-The assistant operates as a **multi-agent Retrieval-Augmented Generation (RAG) system**. This means instead of one giant model doing everything, multiple specialized agents collaborate, each handling a specific task.
+The assistant operates as a multi-agent Retrieval-Augmented Generation (RAG) system. This means instead of one giant model doing everything, multiple specialized agents collaborate, each handling a specific task.
 
 - **Supervisor Agent** – Think of this as the “manager.” It breaks user input into smaller tasks and assigns them to the right agents.
 - **Query Planning Agent** – Refines what the user said into a precise, structured query.

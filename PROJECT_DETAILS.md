@@ -40,7 +40,7 @@ The Retrieval Agent searches the menu database or API for items that match the s
 ### 4.4 Generator Agent
 The Generator Agent converts the retrieved results into natural, conversational text while maintaining a friendly tone and context awareness. It exists because raw data is not user-friendly, and this agent ensures the interaction feels like a real assistant rather than just a database query. For example, instead of displaying JSON results, it would respond with something like: “I found Spicy Chicken Noodles for 18,500 UGX at Wok & Grill. They’re also giving a 10% discount today. Want me to add this to your order?”
 
-### 3.5 Price Agent
+### 4.5 Price Agent
 The Pricing Agent ensures that the final price is clear and accurate by calculating totals that include the dish price, delivery fees, discounts, and promotions. It exists because users want to know the exact total cost before confirming an order, making transparency essential. For example, if the dish price is 18,500 UGX, the delivery fee is 2,000 UGX, and a discount of -1,850 UGX is applied, the agent presents the Final Price = 18,650 UGX.
 
 
@@ -100,6 +100,7 @@ User: *“Get me a vegetarian pizza under 25,000 UGX.”*
 
 ## 7. Why Multi-Agent Design?
 Instead of one giant LLM doing everything, dividing tasks amongst agents offers:
+
 **Specialization** → Each agent does one job well.  
 
 **Flexibility** → Easier to swap or upgrade parts (e.g., new retrieval API).  

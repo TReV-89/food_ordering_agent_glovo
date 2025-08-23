@@ -93,6 +93,9 @@ Discount: -1,850 UGX
 **Final Price = 18,650 UGX**
 
 ---
+![Alt text for the image](images/usercase1.1.png)
+![Alt text for the image](images/usercase1.2.png)
+![Alt text for the image](images/usercase1.3.png)
 
 ## 4. Data Flow
 Agents' step by step interaction:

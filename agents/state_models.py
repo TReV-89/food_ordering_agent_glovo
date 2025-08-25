@@ -1,11 +1,11 @@
-from pydantic import HttpUrl
+from pydantic import HttpUrl, BaseModel
 from typing import List, Optional
 from langgraph.prebuilt.chat_agent_executor import AgentState
 from decimal import Decimal
 from typing_extensions import TypedDict, Annotated
 
 
-class MenuItem(TypedDict):
+class MenuItem(BaseModel):
     """
     Represents a single item on a restaurant's menu, including details such as name, description, price, category, image, and availability.
     """
@@ -16,10 +16,12 @@ class MenuItem(TypedDict):
     category_id: Optional[Annotated[str, "ID of the category this item belongs to"]]
     image_url: Annotated[Optional[HttpUrl], "Image URL for the menu item"]
     promotion: Annotated[bool, "Whether the item is on promotion"] = False
-    is_available: Optional[Annotated[bool, "Whether the item is currently available"]] = True
+    is_available: Optional[
+        Annotated[bool, "Whether the item is currently available"]
+    ] = True
 
 
-class Category(TypedDict):
+class Category(BaseModel):
     """
     Represents a category of food within a restaurant, including food types, promotion types, and whether it is top rated.
     """
@@ -29,7 +31,7 @@ class Category(TypedDict):
     top_rated: Annotated[bool, "Whether this category is top rated"] = False
 
 
-class Restaurant(TypedDict):
+class Restaurant(BaseModel):
     """
     Represents a restaurant, including its name, description, rating, categories, menu items, delivery information, and open status.
     """
@@ -82,3 +84,6 @@ class ConversationState(AgentState):
 
     user_query: Annotated[UserQuery, "The user's query and extracted parameters"]
     output: Annotated[str, "The output or response generated"]
+    structured_response: Annotated[
+        Optional[Restaurant], "Structured response with restaurant details"
+    ] = None

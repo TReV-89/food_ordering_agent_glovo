@@ -1,9 +1,15 @@
+import sys
+from pathlib import Path
 import streamlit as st
 from langchain_core.messages import HumanMessage, BaseMessage
-
-
-from backend.pydantic_state_models import SupervisorState, process_messages
 import uuid
+
+# Add parent directory to Python path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from agents.state_models import SupervisorState
+from agents.supervisor_agent import process_messages
+
 
 st.title("Online Food Ordering Agent")
 

@@ -20,7 +20,7 @@ def pre_model_hook(state: ConversationState) -> ConversationState:
                 SystemMessage(
                     content="""You are an expert in converting long conversations into a concise query."
                     Carefully analyze the conversation history between the user and the AI assistant.
-                    Extract the most relevant information.
+                    Extract the most relevant information. Take the user's last message into account when looking at what they want to order.
                     Your goal is to understand the user's intent and provide a clear, concise query.
                     The query generated should especially get information about the cuisine type, the dietary restrictions and price fields.
                     The query will be forwarded to the retrieval agent for further processing.
@@ -50,11 +50,12 @@ retrieval: StateGraph = create_react_agent(
             SystemMessage(
                 content="""You are a retrieval agent. Your job is to retrieve information from either a database or from the web and use it to answer the user's food query.
            Use musts the tools available to you to retrieve information to help answer the query.
-            If the user query has any of the keywords defined below use the smartscraper tool to get the corresponding url.
+            If the user query has any of the keywords defined below use the smartscraperwrapper tool to get the corresponding url.
            The url will be fed into the smartscraper tool with the user food query to get the relevant information from the webpage.
            Your final answer should be concise and directly address the user's query presented.
            After you are done with your tasks, respond to the supervisor directly.
            Respond ONLY with the  resutls of your work, do NOT include ant other text.
+           Ensure that your response is in a format that can be easily understood by the supervisor.
            
         User Food Query: {user_query}
 

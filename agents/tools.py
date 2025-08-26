@@ -15,7 +15,7 @@ smartscraper = SmartScraperTool(api_key=scrape_graph_key)
 
 @tool
 def smartscraper_wrapper(keyword: str) -> str:
-    """Use this tool to get a url related to the keyword."""
+    """Use this tool to get a url related to the keyword. The keyword must be a type of food like **pizza**, **chicken** or **sharwarma**."""
     food_dict = {
         "chicken": "https://glovoapp.com/ug/en/kampala/kfc-kpa1/",
         "sharwarma": "https://glovoapp.com/ug/en/kampala/meza-shawarma-kpa1/",

@@ -37,9 +37,7 @@ By turning menu navigation into a simple conversation, this assistant makes food
 Behind the scenes, this assistant operates like an **agentic Retrieval-Augmented Generation (RAG) system** with a multi-agent design:  
 
 1. **Supervisor Agent** – Oversees the conversation, breaks down user requests into smaller tasks, and coordinates other agents.  
-2. **Query Planning Agent** – Rewrites user's query to something more specific and easier to understand task. Pushes this to the retrieval agent.  
-3. **Retrieval Agent** – Searches and retrieves relevant menu items, deals, and restaurant details from the web or database. 
-4. **Generator Agent** – Crafts clear, friendly, and context-aware responses for the user.
-5. **Price Agent** - Calculates the final price of the order.
+2. **Retrieval Agent** – Searches and retrieves relevant menu items, deals, and restaurant details from the web or database. 
+3. **Generator Agent** – Crafts clear, friendly, and context-aware responses for the user.
 
 The result is a **coordinated, intelligent flow** that feels effortless to the user — but is powered by a smart team of specialized AI agents working together.

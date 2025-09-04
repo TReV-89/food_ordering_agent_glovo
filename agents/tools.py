@@ -12,7 +12,7 @@ collection = client.get_or_create_collection(
 )
 
 docs = PDFPlumberLoader(
-    "/Users/trevorsaaka/Desktop/Timepledge projects/food_ordering_agent_glovo/data/takeoutstar.com_order_printer_restaurant_82943.pdf"
+    "/Users/trevorsaaka/Desktop/Timepledge projects/food_ordering_agent_glovo/menus/takeoutstar.com_order_printer_restaurant_82943.pdf"
 ).load()
 
 chunker = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)

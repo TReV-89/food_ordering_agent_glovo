@@ -9,3 +9,5 @@ google-generativeai
 langchain_core
 langsmith
 fastapi[standard]
+pydantic
+langchain-scrapegraph

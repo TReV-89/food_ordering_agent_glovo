@@ -4,9 +4,10 @@ from langgraph.prebuilt.chat_agent_executor import create_react_agent
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from .tools import smartscraper, smartscraper_wrapper
 from .state_models import ConversationState
-
 from .initialize import llm
 
+import os
+scrape_graph_key = os.getenv("SGAI_API_KEY")
 
 def pre_model_hook(state: ConversationState) -> ConversationState:
     """Pre-model hook to process messages before invoking the model."""

@@ -1,3 +1,4 @@
 virtenv
 .env
 __pycache__
+venv/

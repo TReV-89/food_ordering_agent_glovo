@@ -13,22 +13,7 @@ class MenuItem(BaseModel):
     name: Annotated[str, "Name of the menu item"]
     description: Optional[Annotated[str, "Description of the menu item"]]
     price: Annotated[Decimal, "Price of the menu item"]
-    category_id: Optional[Annotated[str, "ID of the category this item belongs to"]]
-    image_url: Annotated[Optional[HttpUrl], "Image URL for the menu item"]
     promotion: Annotated[bool, "Whether the item is on promotion"] = False
-    is_available: Optional[
-        Annotated[bool, "Whether the item is currently available"]
-    ] = True
-
-
-class Category(BaseModel):
-    """
-    Represents a category of food within a restaurant, including food types, promotion types, and whether it is top rated.
-    """
-
-    food_types: Annotated[List[str], "List of food types in this category"]
-    promotion_types: Annotated[List[str], "List of promotion types for this category"]
-    top_rated: Annotated[bool, "Whether this category is top rated"] = False
 
 
 class Restaurant(BaseModel):
@@ -37,13 +22,7 @@ class Restaurant(BaseModel):
     """
 
     name: Annotated[str, "Name of the restaurant"]
-    description: Annotated[str, "Description of the restaurant"]
-    rating: Annotated[float, "Rating of the restaurant"]
-    categories: Annotated[List[Category], "List of categories in the restaurant"]
     menu_items: Annotated[List[MenuItem], "List of menu items in the restaurant"]
-    delivery_time: Annotated[float, "Estimated delivery time in minutes"]
-    delivery_fee: Annotated[Decimal, "Delivery fee for the restaurant"]
-    is_open: Annotated[bool, "Whether the restaurant is currently open"] = True
 
 
 class SupervisorState(AgentState):
@@ -60,18 +39,17 @@ class QueryParameters(TypedDict):
     """
 
     cuisine_type: Annotated[List[str], "List of cuisine types requested by the user"]
-    price: Annotated[str, "Price range requested by the user"]
-    dietary_restrictions: Annotated[
-        List[str], "Dietary restrictions specified by the user"
+    price: Optional[Annotated[str, "Price range requested by the user"]]
+    dietary_restrictions: Optional[
+        Annotated[List[str], "Dietary restrictions specified by the user"]
     ]
+    raw_query: Annotated[str, "The raw query string from the user"]
 
 
 class UserQuery(TypedDict):
     """
     Represents a user's query, including the raw query string and the extracted structured parameters.
     """
-
-    raw_query: Annotated[str, "The raw query string from the user"]
     parameters: Annotated[
         QueryParameters, "Structured query parameters extracted from the user query"
     ]
@@ -83,7 +61,5 @@ class ConversationState(AgentState):
     """
 
     user_query: Annotated[UserQuery, "The user's query and extracted parameters"]
-    output: Annotated[str, "The output or response generated"]
-    structured_response: Annotated[
-        Optional[Restaurant], "Structured response with restaurant details"
-    ] = None
+    llm_input_messages: Annotated[str, "Messages to be sent to the language model"]
+    output: Annotated[str, "The generated response or output"]

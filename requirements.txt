@@ -3,6 +3,9 @@ python-dotenv
 langchain-google-genai
 chromadb
 langchain
+langchain_community
+pydantic
+pdfplumber
 langgraph
 langgraph_supervisor
 google-generativeai

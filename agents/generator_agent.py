@@ -33,11 +33,11 @@ def pre_model_hook(state: ConversationState) -> ConversationState:
         )
         return {
             "user_query": query.content,
-            "output": trimmed_messages,
+            "llm_input_messages": trimmed_messages,
         }
     else:
         return {
-            "output": trimmed_messages,
+            "llm_input_messages": trimmed_messages,
         }
 
 
@@ -67,7 +67,7 @@ User Food Query: {user_query}
 
 For extra context, you can view the snippet conversation history below."""
             ),
-            MessagesPlaceholder(variable_name="output"),
+            MessagesPlaceholder(variable_name="llm_input_messages"),
         ]
     ),
     state_schema=ConversationState,

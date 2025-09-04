@@ -1,4 +1,4 @@
 virtenv
 .env
 __pycache__
-food_ordering_agent_glovo/
+database

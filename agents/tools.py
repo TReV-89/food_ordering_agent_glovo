@@ -5,7 +5,7 @@ from langchain_community.document_loaders import PDFPlumberLoader
 from .initialize import google_ef
 
 
-client = chromadb.PersistentClient(path="./food_ordering_agent_glovo/database")
+client = chromadb.PersistentClient(path="./database")
 
 collection = client.get_or_create_collection(
     name="food_data", embedding_function=google_ef

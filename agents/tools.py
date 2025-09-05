@@ -1,19 +1,35 @@
 from langchain.tools import tool
 import chromadb
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PDFPlumberLoader
+from langchain_community.document_loaders import PDFPlumberLoader,DirectoryLoader
 from .initialize import google_ef
-
+from chromadb import HttpClient
+import os 
 
 client = chromadb.PersistentClient(path="./database")
 
 collection = client.get_or_create_collection(
     name="food_data", embedding_function=google_ef
 )
+# CHROMA_HOST = os.getenv("CHROMA_HOST", "localhost")
+# CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
 
-docs = PDFPlumberLoader(
-    "/Users/trevorsaaka/Desktop/Timepledge projects/food_ordering_agent_glovo/menus/takeoutstar.com_order_printer_restaurant_82943.pdf"
-).load()
+# client = HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
+
+# collection = client.get_or_create_collection(
+#     name="food_data", embedding_function=google_ef
+# )
+
+menu_dir = r"C:\Users\Admin\OneDrive\Desktop\food_ordering\food_ordering_agent_glovo\menus"
+
+
+loader = DirectoryLoader(
+    menu_dir,
+    glob="**/*.pdf",        
+    loader_cls=PDFPlumberLoader
+)
+
+docs = loader.load()
 
 chunker = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 

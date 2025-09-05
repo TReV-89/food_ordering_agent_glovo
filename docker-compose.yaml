@@ -1,2 +1,29 @@
-.env
-virtenv
+
+services:
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/.chromadb
+
+  agents:
+    build: ./agents
+    container_name: food_agents
+    depends_on:
+      - chromadb
+    environment:
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+
+  frontend:
+    build: ./frontend
+    container_name: food_frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - agents
+
+volumes:
+  chroma_data:

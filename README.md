@@ -53,22 +53,24 @@ cd food_ordering_agent_glovo
 
 ### 2. Create & Activate Virtual Environment
 #### Windows (PowerShell)
+```bash
 python -m venv virt1
 .\virt1\Scripts\activate
+```
 
 #### Mac/Linux
+```bash
 python3 -m venv virt1
 source virt1/bin/activate
+```
 
 ### 3. Install Dependencies
+```bash
 pip install --upgrade pip
 pip install -r requirements.txt
+```
 
-### 4. Start ChromaDB (Docker)
-docker run -d \
-  --name chromadb \
-  -p 8000:8000 \
-  chromadb/chroma
-
-### 7. Run Streamlit
+### 4. Run Streamlit
+```bash
 streamlit run frontend/user_interface.py
+```

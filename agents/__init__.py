@@ -3,7 +3,7 @@ from .state_models import SupervisorState, ConversationState, Restaurant
 from .retrieval_agent import retrieval
 from .generator_agent import generator
 from .initialize import llm, google_ef
-from .tools import final_fee
+from .tools import rag_tool
 
 __all__ = [
     "process_messages",
@@ -14,5 +14,5 @@ __all__ = [
     "generator",
     "llm",
     "google_ef",
-    "final_fee",
+    "rag_tool",
 ]

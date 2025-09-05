@@ -3,30 +3,38 @@ from langgraph.graph import StateGraph
 from langgraph.prebuilt.chat_agent_executor import create_react_agent
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from .state_models import ConversationState
-from .tools import final_fee
-
+from .tools import rag_tool
 from .initialize import llm
 
 
 def pre_model_hook(state: ConversationState) -> ConversationState:
     """Pre-model hook to process messages before invoking the model."""
 
-    trimmed_messages = state["messages"][-5:]  # Keep the last 10 messages
+    trimmed_messages = state["messages"][-7:]  # Keep the last 10 messages
 
     if "user_query" not in state:
-
         query = llm.invoke(
             [
                 SystemMessage(
-                    content="""You are an expert in converting long conversations into a concise query."
+                    content="""You are an expert in organizing information about meals into a nice readable formatted query for the generator agent.
+                    Information provided by the supervisor agent includes  menu items, and prices.
                     Carefully analyze the conversation history between the user and the AI assistant.
-                    Extract the most relevant information.
-                    Your goal is to understand the user's intent and provide a clear, concise query.
-                    The query generated should guide the generator agent on producing a perfect response.
+                    Extract the information concerning the meals and their prices.
+                    The query generated should guide the generator agent on producing a perfect response. Make sure the query is in the perspective of the user.
+                    The query should be along the lines of asking the generator agent to create a user-friendly response based on the information provided by the supervisor agent.
                     The query will be forwarded to the generator agent for further processing.
-                    Role play as the user asking the question.
-                    Your final query should be two to three sentences that captures the essence of the conversation ensuring
-                    it includes all necessary details for generating an accurate and helpful response."""
+                    The query should include all necessary details for generating an accurate and helpful response.
+                    Ensure the query is clear, concise, and directly addresses the user's query.
+                    Below is an example of how the formatted query should be structured:
+                    - MEAL_NAME costs PRICE
+                    - MEAL_NAME costs PRICE
+                    - MEAL_NAME costs PRICE
+                    ....etc. where MEAL_NAME is the name of the meal and PRICE is the price of the meal.
+                    All prices of the meals should be in UGX.
+                    NEVER make up prices. Only use the information provided by the supervisor agent.
+                    NEVER include any information that is not provided by the supervisor agent.  
+                    ENSURE the query is in the perspective of the user e.g " I would like you to generate a user-friendly reponse based on the the information provided:.....".
+                    """
                 )
             ]
             + state["messages"]
@@ -44,7 +52,7 @@ def pre_model_hook(state: ConversationState) -> ConversationState:
 generator: StateGraph = create_react_agent(
     name="generator_agent",
     model=llm,
-    tools=[final_fee],
+    tools=[rag_tool],
     pre_model_hook=pre_model_hook,
     prompt=ChatPromptTemplate.from_messages(
         [
@@ -55,15 +63,15 @@ generator: StateGraph = create_react_agent(
 
 2. **Response Generation:** Generate a clear, concise, and user-friendly response that directly addresses the user's query.
 
-3. **Recommendation Limit:** When recommending meals or restaurants, provide at most 3 options, preferably those with prices attached.
+3. **Recommendation Limit:** When recommending meals , provide at most 3 options, preferably those with prices attached.
 
-4. **Accuracy:** NEVER make up prices or delivery fees. Only use the information provided by the supervisor agent.
+4. **Accuracy:** NEVER make up prices. Only use the information provided by the supervisor agent.
 
-5. **Tool Usage:** ONLY use the `final_fee` tool to calculate the final fee by adding the delivery fee and the price of the menu item when the user explicitly asks for it.
+5. **User Intent:** Ensure your response accurately reflects the user's intent and preferences, as indicated in the conversation history.
 
-6. **User Intent:** Ensure your response accurately reflects the user's intent and preferences, as indicated in the conversation history.
+Never use the rag_tool to retrieve information from the database. You should ONLY use the information provided by the supervisor agent.
 
-User Food Query: {user_query}
+Query: {user_query}
 
 For extra context, you can view the snippet conversation history below."""
             ),

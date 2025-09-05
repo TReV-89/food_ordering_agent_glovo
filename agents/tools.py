@@ -1,10 +1,10 @@
 from langchain.tools import tool
 import chromadb
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PDFPlumberLoader,DirectoryLoader
+from langchain_community.document_loaders import PDFPlumberLoader, DirectoryLoader
 from .initialize import google_ef
 from chromadb import HttpClient
-import os 
+import os
 
 client = chromadb.PersistentClient(path="./database")
 
@@ -20,14 +20,13 @@ collection = client.get_or_create_collection(
 #     name="food_data", embedding_function=google_ef
 # )
 
-menu_dir = r"C:\Users\Admin\OneDrive\Desktop\food_ordering\food_ordering_agent_glovo\menus"
-
-
-loader = DirectoryLoader(
-    menu_dir,
-    glob="**/*.pdf",        
-    loader_cls=PDFPlumberLoader
+menu_dir = (
+    r"/Users/trevorsaaka/Desktop/Timepledge projects/food_ordering_agent_glovo/menus"
 )
+# r"C:\Users\Admin\OneDrive\Desktop\food_ordering\food_ordering_agent_glovo\menus"
+
+
+loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 
 docs = loader.load()
 
@@ -58,20 +57,7 @@ collection.add(
 def rag_tool(query: str) -> str:
     """Use this tool to retrieve information from a knowledge base."""
     results = collection.query(query_texts=[query], n_results=5)
-    smallest_distance = results["distances"][0][0]
+    response = "\n".join([doc.strip() for doc in results["documents"][0]])
+    return response
 
-    if smallest_distance < 0.6:
-        response = "\n".join([doc.strip() for doc in results["documents"][0]])
-        return response
-    return "No relevant information found."
-
-
-@tool
-def calculate_final_fee(delivery_fee: float, price: float) -> str:
-    """Use this tool to calculate the final fee by adding delivery fee and price of the menu item."""
-    return f"UGX {delivery_fee + price}"
-
-
-final_fee = calculate_final_fee
-
-__all__ = ["rag_tool", "final_fee"]
+__all__ = ["rag_tool", "converter"]

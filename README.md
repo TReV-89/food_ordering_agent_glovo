@@ -41,6 +41,7 @@ Behind the scenes, this assistant operates like an **agentic Retrieval-Augmented
 3. **Generator Agent** – Crafts clear, friendly, and context-aware responses for the user.
 
 The result is a **coordinated, intelligent flow** that feels effortless to the user — but is powered by a smart team of specialized AI agents working together.
+
 ---
 ## Setup & Installation
 

@@ -60,4 +60,4 @@ def rag_tool(query: str) -> str:
     response = "\n".join([doc.strip() for doc in results["documents"][0]])
     return response
 
-__all__ = ["rag_tool", "converter"]
+__all__ = ["rag_tool"]

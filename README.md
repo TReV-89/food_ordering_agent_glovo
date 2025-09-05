@@ -2,6 +2,7 @@
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Enabled-ff4b4b)](https://streamlit.io/)
 [![LangChain](https://img.shields.io/badge/LangChain-0.2+-yellowgreen)](https://www.langchain.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agents%20&%20Workflows-purple)](https://www.langchain.com/langgraph)
 [![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20DB-orange)](https://www.trychroma.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)

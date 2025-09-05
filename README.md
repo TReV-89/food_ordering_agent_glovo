@@ -47,7 +47,7 @@ The result is a **coordinated, intelligent flow** that feels effortless to the u
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/food_ordering_agent_glovo.git
+https://github.com/TReV-89/food_ordering_agent_glovo.git
 cd food_ordering_agent_glovo
 ```
 

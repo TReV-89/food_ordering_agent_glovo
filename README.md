@@ -32,7 +32,7 @@ By turning menu navigation into a simple conversation, this assistant makes food
 - **Faster**, no need to dig through dozens of pages.  
 - **Smarter**, understands context and preferences.
   
-## How It Works 
+## How It Works
 
 Behind the scenes, this assistant operates like an **agentic Retrieval-Augmented Generation (RAG) system** with a multi-agent design:  
 
@@ -41,12 +41,33 @@ Behind the scenes, this assistant operates like an **agentic Retrieval-Augmented
 3. **Generator Agent** – Crafts clear, friendly, and context-aware responses for the user.
 
 The result is a **coordinated, intelligent flow** that feels effortless to the user — but is powered by a smart team of specialized AI agents working together.
-
+---
 ## Setup & Installation
 
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/your-username/food_ordering_agent_glovo.git
 cd food_ordering_agent_glovo
+```
 
-### 1. Clone the Repository
+### 2. Create & Activate Virtual Environment
+# Windows (PowerShell)
+python -m venv virt1
+.\virt1\Scripts\activate
+
+# Mac/Linux
+python3 -m venv virt1
+source virt1/bin/activate
+
+### 3. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+### 4. Start ChromaDB (Docker)
+docker run -d \
+  --name chromadb \
+  -p 8000:8000 \
+  chromadb/chroma
+
+### 7. Run Streamlit
+streamlit run frontend/user_interface.py

@@ -49,4 +49,4 @@ The result is a **coordinated, intelligent flow** that feels effortless to the u
 git clone https://github.com/your-username/food_ordering_agent_glovo.git
 cd food_ordering_agent_glovo
 
-### 2. Create & Activate Virtual Environment
+**### 2. Create & Activate Virtual Environment**

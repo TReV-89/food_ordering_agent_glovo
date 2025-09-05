@@ -1,4 +1,11 @@
 # AI-Powered Food Ordering Assistant  
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Enabled-ff4b4b)](https://streamlit.io/)
+[![LangChain](https://img.shields.io/badge/LangChain-0.2+-yellowgreen)](https://www.langchain.com/)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20DB-orange)](https://www.trychroma.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
+
 This multi-agent system will help with the food ordering process. This system utilises the restaurant listings and menus registered on Glovo to ensure as little time as possible is spent searching for what to eat on the website. It will also help streamline the ordering process and facilitate the identification of food promotions quickly.
 
 

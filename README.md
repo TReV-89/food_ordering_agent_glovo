@@ -1,4 +1,12 @@
 # AI-Powered Food Ordering Assistant  
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Enabled-ff4b4b)](https://streamlit.io/)
+[![LangChain](https://img.shields.io/badge/LangChain-0.2+-yellowgreen)](https://www.langchain.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agents%20&%20Workflows-purple)](https://www.langchain.com/langgraph)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20DB-orange)](https://www.trychroma.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
+
 This multi-agent system will help with the food ordering process. This system utilises the restaurant listings and menus registered on Glovo to ensure as little time as possible is spent searching for what to eat on the website. It will also help streamline the ordering process and facilitate the identification of food promotions quickly.
 
 
@@ -32,7 +40,7 @@ By turning menu navigation into a simple conversation, this assistant makes food
 - **Faster**, no need to dig through dozens of pages.  
 - **Smarter**, understands context and preferences.
   
-## How It Works 
+## How It Works
 
 Behind the scenes, this assistant operates like an **agentic Retrieval-Augmented Generation (RAG) system** with a multi-agent design:  
 
@@ -41,3 +49,36 @@ Behind the scenes, this assistant operates like an **agentic Retrieval-Augmented
 3. **Generator Agent** – Crafts clear, friendly, and context-aware responses for the user.
 
 The result is a **coordinated, intelligent flow** that feels effortless to the user — but is powered by a smart team of specialized AI agents working together.
+
+---
+## Setup & Installation
+
+### 1. Clone the Repository
+```bash
+https://github.com/TReV-89/food_ordering_agent_glovo.git
+cd food_ordering_agent_glovo
+```
+
+### 2. Create & Activate Virtual Environment
+#### Windows (PowerShell)
+```bash
+python -m venv virt1
+.\virt1\Scripts\activate
+```
+
+#### Mac/Linux
+```bash
+python3 -m venv virt1
+source virt1/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 4. Run Streamlit
+```bash
+streamlit run frontend/user_interface.py
+```

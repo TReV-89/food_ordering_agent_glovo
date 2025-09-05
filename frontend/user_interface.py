@@ -4,6 +4,49 @@ import streamlit as st
 from langchain_core.messages import HumanMessage, BaseMessage
 import uuid
 
+# --- Custom CSS: Sidebar Tomato Red + Clear Chat Button White + Send Icon Red ---
+st.markdown(
+    """
+    <style>
+    /* Sidebar background in Tomato Red */
+    section[data-testid="stSidebar"] {
+        background-color: #E63946 !important;
+    }
+
+    /* Clear Chat button style */
+    section[data-testid="stSidebar"] button {
+        background-color: white !important;
+        color: black !important;
+        border: none !important;
+        border-radius: 6px !important;
+        padding: 6px 12px !important;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Optional: Hover effect for Clear Chat button */
+    section[data-testid="stSidebar"] button:hover {
+        background-color: #f2f2f2 !important;
+    }
+
+    /* Chat input send button (arrow) */
+    div[data-testid="stChatInput"] button {
+        background-color: #E63946 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 6px !important;
+        cursor: pointer;
+    }
+
+    /* Optional: Hover effect for send button */
+    div[data-testid="stChatInput"] button:hover {
+        background-color: #d6343f !important;  /* slightly darker tomato red */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Add parent directory to Python path
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -13,7 +56,18 @@ from agents.supervisor_agent import process_messages
 # Agent name constant
 AGENT_NAME = "Krustie"
 
-st.title("Krustie, The Food Ordering Agent")
+# Logo next to title with vertical alignment 
+logo_path = "images/logo.png" 
+
+col1, col2 = st.columns([1, 6], gap="small") 
+with col1:
+    st.image(logo_path, width=200) 
+with col2:
+    st.markdown(
+        "<h1 style='display: flex; align-items: center; margin: 0;'>Krustie, The Food Ordering Agent</h1>",
+        unsafe_allow_html=True
+    )
+
 
 # Add clear chat button
 if st.sidebar.button("Clear Chat"):

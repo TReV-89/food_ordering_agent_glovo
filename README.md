@@ -52,11 +52,11 @@ cd food_ordering_agent_glovo
 ```
 
 ### 2. Create & Activate Virtual Environment
-# Windows (PowerShell)
+#### Windows (PowerShell)
 python -m venv virt1
 .\virt1\Scripts\activate
 
-# Mac/Linux
+#### Mac/Linux
 python3 -m venv virt1
 source virt1/bin/activate
 

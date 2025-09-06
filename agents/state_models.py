@@ -1,28 +1,6 @@
-from pydantic import HttpUrl, BaseModel
 from typing import List, Optional
 from langgraph.prebuilt.chat_agent_executor import AgentState
-from decimal import Decimal
 from typing_extensions import TypedDict, Annotated
-
-
-class MenuItem(BaseModel):
-    """
-    Represents a single item on a restaurant's menu, including details such as name, description, price, category, image, and availability.
-    """
-
-    name: Annotated[str, "Name of the menu item"]
-    description: Optional[Annotated[str, "Description of the menu item"]]
-    price: Annotated[Decimal, "Price of the menu item"]
-    promotion: Annotated[bool, "Whether the item is on promotion"] = False
-
-
-class Restaurant(BaseModel):
-    """
-    Represents a restaurant, including its name, description, rating, categories, menu items, delivery information, and open status.
-    """
-
-    name: Annotated[str, "Name of the restaurant"]
-    menu_items: Annotated[List[MenuItem], "List of menu items in the restaurant"]
 
 
 class SupervisorState(AgentState):
@@ -50,6 +28,7 @@ class UserQuery(TypedDict):
     """
     Represents a user's query, including the raw query string and the extracted structured parameters.
     """
+
     parameters: Annotated[
         QueryParameters, "Structured query parameters extracted from the user query"
     ]

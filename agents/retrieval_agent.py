@@ -3,8 +3,7 @@ from langgraph.graph import StateGraph
 from langgraph.prebuilt.chat_agent_executor import create_react_agent
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from .tools import rag_tool
-from .state_models import ConversationState, Restaurant, MenuItem
-from decimal import Decimal
+from .state_models import ConversationState
 
 from .initialize import llm
 

@@ -14,4 +14,3 @@ llm = ChatGoogleGenerativeAI(
 
 google_ef = embedding_functions.GoogleGenerativeAiEmbeddingFunction(api_key=api_key)
 
-

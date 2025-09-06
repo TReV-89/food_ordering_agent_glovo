@@ -1,4 +1,4 @@
-from langchain_core.messages import SystemMessage
+from langchain_core.messages import SystemMessage, HumanMessage
 from langgraph.graph import StateGraph
 from langgraph.prebuilt.chat_agent_executor import create_react_agent
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -12,7 +12,7 @@ from .initialize import llm
 def pre_model_hook(state: ConversationState) -> ConversationState:
     """Pre-model hook to process messages before invoking the model."""
 
-    trimmed_messages = state["messages"][-7:]  # Keep the last 5 messages
+    trimmed_messages = state["messages"][-5:]  # Keep the last 5 messages
 
     if "user_query" not in state:
         parameters = llm.invoke(
@@ -42,7 +42,7 @@ def pre_model_hook(state: ConversationState) -> ConversationState:
                             """
                 )
             ]
-            + state["messages"]
+            + trimmed_messages
         )
 
         return {
@@ -74,14 +74,10 @@ retrieval: StateGraph = create_react_agent(
 
             3. **Supervisor Communication:** After completing your task, respond to the supervisor with ONLY the results of your retrieval. Do NOT include any other text or explanations.
 
-            4. **Format:** Ensure your response is in a format that can be easily understood by the supervisor.
-
-            User Food Query: {user_query}
-
-            For extra context, you can view the snippet conversation history below.
-            
-            Please provide your answer in output field."""
+            4. **Format:** Ensure your response is in a format that can be easily understood by the supervisor. ALWAYS include the prices in UGX and name of the meals
+"""
             ),
+            HumanMessage(content="Query:{user_query}"),
             MessagesPlaceholder(variable_name="llm_input_messages"),
         ]
     ),

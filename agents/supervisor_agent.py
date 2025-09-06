@@ -31,12 +31,12 @@ supervisor_graph: StateGraph = create_supervisor(
    - Do NOT use the generator agent
    - Handle the response directly as an assistant
 
-5. **Conversation Management:** 
+5. **Conversation Management:**
    - Maintain context of previous interactions
    - Provide personalized recommendations based on conversation history
    - Keep track of user preferences for future interactions
-NEVER ask them about the restaurant name. 
-Remember: ALWAYS use the `generator` agent's response to answer the user when you have successfully retrieved data through the `retrieval` agent. For all other interactions, respond directly as an assistant.
+NEVER ask them about the restaurant name.
+Remember: ALWAYS USE the `generator` agent's response to answer the user when you have successfully retrieved data through the `retrieval` agent. For all other interactions, respond directly as an assistant.
         """
     ),
     state_schema=SupervisorState,

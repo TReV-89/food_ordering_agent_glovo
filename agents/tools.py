@@ -56,8 +56,15 @@ collection.add(
 @tool
 def rag_tool(query: str) -> str:
     """Use this tool to retrieve information from a knowledge base."""
-    results = collection.query(query_texts=[query], n_results=5)
-    response = "\n".join([doc.strip() for doc in results["documents"][0]])
-    return response
+    results = collection.query(query_texts=[query], n_results=5, include=["distances"])
+    filtered_docs = []
+    for doc, distance in zip(results["documents"][0], results["distances"][0]):
+        if distance <= 1.0:
+            filtered_docs.append(doc.strip())
+
+    # Return filtered results or a message if no relevant results found
+    if filtered_docs:
+        return "\n".join(filtered_docs)
+
 
 __all__ = ["rag_tool"]

@@ -21,7 +21,6 @@ services:
     environment:
       - CHROMA_HOST=chromadb
       - CHROMA_PORT=8000
-      - api_key=AIzaSyCD28_BEOxdpdRfg6mfN7B0h0iiwhqEoVk
 
   frontend:
     build: 

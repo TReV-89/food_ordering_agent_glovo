@@ -20,11 +20,7 @@ collection = client.get_or_create_collection(
 #     name="food_data", embedding_function=google_ef
 # )
 
-menu_dir = (
-    r"/Users/trevorsaaka/Desktop/Timepledge projects/food_ordering_agent_glovo/menus"
-)
-# r"C:\Users\Admin\OneDrive\Desktop\food_ordering\food_ordering_agent_glovo\menus"
-
+menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 

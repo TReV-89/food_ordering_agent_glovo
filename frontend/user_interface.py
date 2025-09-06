@@ -61,7 +61,7 @@ logo_path = "images/logo.png"
 
 col1, col2 = st.columns([1, 6], gap="small")
 with col1:
-    st.image(logo_path, width=200)
+    st.image(logo_path, width=200) 
 with col2:
     st.markdown(
         "<h1 style='display: flex; align-items: center; margin: 0;'>Krustie, The Food Ordering Agent</h1>",

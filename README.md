@@ -82,3 +82,19 @@ pip install -r requirements.txt
 ```bash
 streamlit run frontend/user_interface.py
 ```
+
+### 5. Build and run with Docker Compose
+```bash
+docker-compose up --build
+```
+
+### 6. Access the app
+Once running, open your browser and go to:
+http://localhost:8501/
+
+### 7. If you want to stop the app:
+```bash
+docker-compose down
+```
+
+

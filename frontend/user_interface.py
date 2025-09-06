@@ -44,7 +44,7 @@ st.markdown(
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 # Add parent directory to Python path
@@ -56,16 +56,16 @@ from agents.supervisor_agent import process_messages
 # Agent name constant
 AGENT_NAME = "Krustie"
 
-# Logo next to title with vertical alignment 
-logo_path = "images/logo.png" 
+# Logo next to title with vertical alignment
+logo_path = "images/logo.png"
 
-col1, col2 = st.columns([1, 6], gap="small") 
+col1, col2 = st.columns([1, 6], gap="small")
 with col1:
-    st.image(logo_path, width=270) 
+    st.image(logo_path, width=200) 
 with col2:
     st.markdown(
         "<h1 style='display: flex; align-items: center; margin: 0;'>Krustie, The Food Ordering Agent</h1>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
 
@@ -86,17 +86,16 @@ if "state" not in st.session_state:
 # Display messages
 for i, message in enumerate(st.session_state.state["messages"]):
     message: BaseMessage
-    with st.chat_message(message.type):
-        if message.type == "ai":
-            if message.name != "supervisor":
-                with st.expander(AGENT_NAME):
-                    st.write(message.content)
-            else:
-                # Only display supervisor message if it's the last message
-                if i == len(st.session_state.state["messages"]) - 1:
-                    st.write(message.content)
-        else:
+    if message.type == "human":
+        # Display user messages
+        with st.chat_message("user"):
             st.write(message.content)
+    elif message.type == "ai" and message.name == "supervisor":
+        # Only display supervisor messages
+        content = message.content.strip()
+        if content:  # Only display if content is not empty
+            with st.chat_message("ai"):
+                st.write(content)
 
 if prompt := st.chat_input("Please place your order: "):
     new_message = HumanMessage(content=prompt)

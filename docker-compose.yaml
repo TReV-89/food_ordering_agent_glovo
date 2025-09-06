@@ -4,26 +4,37 @@ services:
     image: chromadb/chroma:latest
     container_name: chromadb
     ports:
-      - "8001:8000"
+      - "8000:8000"
     volumes:
       - chroma_data:/chroma/.chromadb
+      - ./menus:/app/menus 
 
   agents:
-    build: ./agents
+    build:
+      context: .
+      dockerfile: ./agents/Dockerfile
     container_name: food_agents
+    env_file:
+      - .env
     depends_on:
       - chromadb
     environment:
       - CHROMA_HOST=chromadb
       - CHROMA_PORT=8000
+      - api_key=AIzaSyCD28_BEOxdpdRfg6mfN7B0h0iiwhqEoVk
 
   frontend:
-    build: ./frontend
+    build: 
+      context: .
+      dockerfile: ./frontend/Dockerfile
     container_name: food_frontend
+    env_file:
+      - .env
     ports:
       - "8501:8501"
     depends_on:
       - agents
-
+    volumes:
+      - ./images/logo.png:/app/images/logo.png
 volumes:
   chroma_data:

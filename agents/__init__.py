@@ -1,5 +1,5 @@
 from .supervisor_agent import process_messages
-from .state_models import SupervisorState, ConversationState, Restaurant
+from .state_models import SupervisorState, ConversationState
 from .retrieval_agent import retrieval
 from .generator_agent import generator
 from .initialize import llm, google_ef
@@ -9,7 +9,6 @@ __all__ = [
     "process_messages",
     "SupervisorState",
     "ConversationState",
-    "Restaurant",
     "retrieval",
     "generator",
     "llm",

@@ -10,7 +10,7 @@ from .initialize import google_ef
 
 load_dotenv()
 
-# client = chromadb.PersistentClient(path="./database")
+client = chromadb.PersistentClient(path="./database")
 
 # collection = client.get_or_create_collection(
 #      name="food_data", embedding_function=google_ef
@@ -18,14 +18,14 @@ load_dotenv()
 # CHROMA_HOST = os.getenv("CHROMA_HOST", "chromadb")
 # CHROMA_PORT = int(os.getenv("CHROMA_PORT", 8000))
 
-client = chromadb.HttpClient(host="chromadb", port=8000)
+#client = chromadb.HttpClient(host="chromadb", port=8000)
 
 collection = client.get_or_create_collection(
     name="food_data", embedding_function=google_ef
 )
 
-menu_dir = "/app/menus"
-# menu_dir = "menus"
+#menu_dir = "/app/menus"
+menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 

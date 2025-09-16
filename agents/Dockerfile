@@ -11,8 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
-COPY agents/ ./agents
-COPY menus/ ./menus
+COPY . .
 
 # Set Python path to allow absolute imports
 ENV PYTHONPATH=/app

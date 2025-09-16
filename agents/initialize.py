@@ -6,11 +6,8 @@ from chromadb.utils import embedding_functions
 load_dotenv()
 api_key = os.getenv("api_key")
 model = os.getenv("model")
-openai_api_key = os.getenv("OPENAI_API_KEY")
 
 llm = ChatGoogleGenerativeAI(
     model=model, google_api_key=api_key, temperature=0.3, max_tokens=None
 )
-
-google_ef = embedding_functions.GoogleGenerativeAiEmbeddingFunction(api_key=api_key)
 

@@ -3,28 +3,33 @@ from langchain.tools import tool
 import chromadb
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PDFPlumberLoader, DirectoryLoader
-from .initialize import google_ef
 
-# from chromadb import HttpClient
-# import os
+# from .initialize import google_ef
+from chromadb.utils import embedding_functions
+
+
+from chromadb import HttpClient
+import os
 
 load_dotenv()
 
-client = chromadb.PersistentClient(path="./database")
+# client = chromadb.PersistentClient(path="./database")
 
 # collection = client.get_or_create_collection(
 #      name="food_data", embedding_function=google_ef
 #  )
-# CHROMA_HOST = os.getenv("CHROMA_HOST", "chromadb")
-# CHROMA_PORT = int(os.getenv("CHROMA_PORT", 8000))
+CHROMA_HOST = os.getenv("CHROMA_HOST", "chromadb")
+CHROMA_PORT = int(os.getenv("CHROMA_PORT", 8000))
 
-#client = chromadb.HttpClient(host="chromadb", port=8000)
+client = chromadb.HttpClient(host="chromadb", port=8000)
+
+default_ef = embedding_functions.DefaultEmbeddingFunction()
 
 collection = client.get_or_create_collection(
-    name="food_data", embedding_function=google_ef
+    name="food_data", embedding_function=default_ef
 )
 
-#menu_dir = "/app/menus"
+# menu_dir = "/app/menus"
 menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)

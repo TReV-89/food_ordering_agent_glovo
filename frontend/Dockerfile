@@ -8,7 +8,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy both frontend and agents code
-COPY frontend/ ./frontend
+COPY . ./frontend
 COPY menus/ ./menus 
 COPY ../agents/ ./agents 
 

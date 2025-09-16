@@ -20,4 +20,4 @@ ENV PYTHONPATH=/app
 EXPOSE 8000
 
 # Run supervisor agent using absolute imports
-CMD ["python", "-m", "agents.supervisor_agent"]
+CMD ["python", "-m", "supervisor_agent.py"]

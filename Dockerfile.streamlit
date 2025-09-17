@@ -21,8 +21,7 @@ COPY menus/ ./menus/
 
 ENV PYTHONPATH=/app
 
-# Expose both ports (though Render typically uses one)
 EXPOSE 8501
 
 # Default to frontend (change as needed)
-CMD ["streamlit", "run", "frontend/user_interface.py"]
+CMD ["streamlit", "run", "frontend/user_interface.py","--server.port", "8501", "--server.address", "0.0.0.0"]

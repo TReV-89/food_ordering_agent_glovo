@@ -15,6 +15,7 @@ RUN pip install --no-cache-dir -r agents_requirements.txt
 RUN pip install --no-cache-dir -r frontend_requirements.txt
 
 # Copy all source code
+COPY user_interface.py .
 COPY agents/ ./agents/
 COPY menus/ ./menus/
 

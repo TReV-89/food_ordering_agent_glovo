@@ -6,22 +6,21 @@ from langchain_community.document_loaders import PDFPlumberLoader, DirectoryLoad
 
 # from .initialize import google_ef
 from chromadb.utils import embedding_functions
-
-
-#from chromadb import HttpClient
 import os
 
 load_dotenv()
 
-#client = chromadb.PersistentClient(path="./database")
+# client = chromadb.PersistentClient(path="./database")
 
 # collection = client.get_or_create_collection(
 #      name="food_data", embedding_function=google_ef
 #  )
-CHROMA_HOST = os.getenv("CHROMA_HOST", "chromadb")
-CHROMA_PORT = int(os.getenv("CHROMA_PORT", 8000))
+chroma_host = os.getenv("CHROMA_HOST", "food-ordering-agent-glovo-chroma.onrender.com")
+chroma_port = int(os.getenv("CHROMA_PORT", "443"))
+use_ssl = os.getenv("CHROMA_SSL", "true").lower() == "true"
 
-client = chromadb.HttpClient(host="chromadb", port=8000)
+
+client = chromadb.HttpClient(host=chroma_host, port=chroma_port, ssl=use_ssl)
 
 default_ef = embedding_functions.DefaultEmbeddingFunction()
 

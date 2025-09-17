@@ -15,7 +15,7 @@ load_dotenv()
 # collection = client.get_or_create_collection(
 #      name="food_data", embedding_function=google_ef
 #  )
-chroma_host = os.getenv("CHROMA_HOST", "food-ordering-agent-glovo-chroma.onrender.com")
+chroma_host = os.getenv("CHROMA_HOST", "food-ordering-agent-chromadb.onrender.com")
 chroma_port = int(os.getenv("CHROMA_PORT", "443"))
 use_ssl = os.getenv("CHROMA_SSL", "true").lower() == "true"
 
@@ -28,7 +28,7 @@ collection = client.get_or_create_collection(
 )
 
 menu_dir = "/app/menus"
-#menu_dir = "menus"
+# menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 

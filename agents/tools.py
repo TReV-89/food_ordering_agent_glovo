@@ -19,7 +19,6 @@ chroma_host = os.getenv("CHROMA_HOST", "food-ordering-agent-glovo-chroma.onrende
 chroma_port = int(os.getenv("CHROMA_PORT", "443"))
 use_ssl = os.getenv("CHROMA_SSL", "true").lower() == "true"
 
-
 client = chromadb.HttpClient(host=chroma_host, port=chroma_port, ssl=use_ssl)
 
 default_ef = embedding_functions.DefaultEmbeddingFunction()
@@ -28,8 +27,8 @@ collection = client.get_or_create_collection(
     name="food_data", embedding_function=default_ef
 )
 
-# menu_dir = "/app/menus"
-menu_dir = "menus"
+menu_dir = "/app/menus"
+#menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 

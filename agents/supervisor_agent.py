@@ -1,10 +1,10 @@
 from langgraph.graph import StateGraph
 from langgraph_supervisor import create_supervisor
 from langchain_core.messages import AIMessage
-from .retrieval_agent import retrieval
-from .generator_agent import generator
-from .state_models import SupervisorState
-from .initialize import llm
+from retrieval_agent import retrieval
+from generator_agent import generator
+from state_models import SupervisorState
+from initialize import llm
 
 
 supervisor_graph: StateGraph = create_supervisor(

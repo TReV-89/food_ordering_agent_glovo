@@ -15,7 +15,7 @@ COPY generator_agent.py .
 COPY supervisor_agent.py .
 COPY __init__.py .
 COPY initialize.py .
-COPY retriever_agent.py .
+COPY retrieval_agent.py .
 COPY state_models.py .
 COPY tools.py .
 COPY user_interface.py .

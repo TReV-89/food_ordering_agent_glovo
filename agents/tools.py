@@ -27,8 +27,8 @@ collection = client.get_or_create_collection(
     name="food_data", embedding_function=default_ef
 )
 
-menu_dir = "/app/menus"
-# menu_dir = "menus"
+#menu_dir = "/app/menus"
+menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 

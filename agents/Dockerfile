@@ -11,14 +11,20 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
-COPY agents/ ./agents
+COPY generator_agent.py .
+COPY supervisor_agent.py .
+COPY __init__.py .
+COPY initialize.py .
+COPY retriever_agent.py .
+COPY state_models.py .
+COPY tools.py .
+COPY user_interface.py .
 COPY menus/ ./menus
 
 # Set Python path to allow absolute imports
 ENV PYTHONPATH=/app
 
-# Expose backend port
-EXPOSE 8000
+EXPOSE 8501
 
 # Run supervisor agent using absolute imports
-CMD ["python", "-m", "agents.supervisor_agent"]
+CMD ["streamlit", "run", "user_interface.py","--server.port", "8501", "--server.address", "0.0.0.0"]

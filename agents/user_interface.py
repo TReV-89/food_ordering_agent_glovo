@@ -50,8 +50,8 @@ st.markdown(
 # Add parent directory to Python path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from agents.state_models import SupervisorState
-from agents.supervisor_agent import process_messages
+from .state_models import SupervisorState
+from .supervisor_agent import process_messages
 
 # Agent name constant
 AGENT_NAME = "Krustie"

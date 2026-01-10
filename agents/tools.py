@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
-from langchain.tools import tool
+from langchain_core.tools import tool
 import chromadb
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PDFPlumberLoader, DirectoryLoader
 
 # from .initialize import google_ef
@@ -10,16 +10,13 @@ import os
 
 load_dotenv()
 
-# client = chromadb.PersistentClient(path="./database")
+client = chromadb.PersistentClient(path="./chroma/.chromadb")
 
-# collection = client.get_or_create_collection(
-#      name="food_data", embedding_function=google_ef
-#  )
-chroma_host = os.getenv("CHROMA_HOST", "food-ordering-agent-chromadb.onrender.com")
-chroma_port = int(os.getenv("CHROMA_PORT", "443"))
-use_ssl = os.getenv("CHROMA_SSL", "true").lower() == "true"
+# chroma_host = os.getenv("CHROMA_HOST", "food-ordering-agent-chromadb.onrender.com")
+# chroma_port = int(os.getenv("CHROMA_PORT", "443"))
+# use_ssl = os.getenv("CHROMA_SSL", "true").lower() == "true"
 
-client = chromadb.HttpClient(host=chroma_host, port=chroma_port, ssl=use_ssl)
+# client = chromadb.HttpClient(host=chroma_host, port=chroma_port, ssl=use_ssl)
 
 default_ef = embedding_functions.DefaultEmbeddingFunction()
 
@@ -27,8 +24,8 @@ collection = client.get_or_create_collection(
     name="food_data", embedding_function=default_ef
 )
 
-#menu_dir = "/app/menus"
-menu_dir = "menus"
+menu_dir = "/app/menus"
+# menu_dir = "menus"
 
 loader = DirectoryLoader(menu_dir, glob="**/*.pdf", loader_cls=PDFPlumberLoader)
 

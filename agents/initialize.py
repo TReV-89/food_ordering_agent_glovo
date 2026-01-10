@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
-from chromadb.utils import embedding_functions
 
 load_dotenv()
 api_key = os.getenv("api_key")

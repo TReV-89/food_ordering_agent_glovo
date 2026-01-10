@@ -12,7 +12,7 @@ services:
   agents:
     build:
       context: .
-      dockerfile: ./agents/Dockerfile
+      dockerfile: agents/Dockerfile
     container_name: food_agents
     env_file:
       - .env
@@ -25,7 +25,7 @@ services:
   frontend:
     build: 
       context: .
-      dockerfile: ./frontend/Dockerfile
+      dockerfile: frontend/Dockerfile
     container_name: food_frontend
     env_file:
       - .env
@@ -35,5 +35,6 @@ services:
       - agents
     volumes:
       - ./images/logo.png:/app/images/logo.png
+      - ./menus:/app/menus
 volumes:
   chroma_data:

@@ -3,6 +3,7 @@ from pathlib import Path
 import streamlit as st
 from langchain_core.messages import HumanMessage, BaseMessage
 import uuid
+from agents.supervisor_agent import process_messages
 
 # --- Custom CSS: Sidebar Tomato Red + Clear Chat Button White + Send Icon Red ---
 st.markdown(
@@ -48,16 +49,14 @@ st.markdown(
 )
 
 # Add parent directory to Python path
-sys.path.append(str(Path(__file__).parent.parent))
+# sys.path.append(str(Path(__file__).parent.parent))
 
-from state_models import SupervisorState
-from supervisor_agent import process_messages
 
 # Agent name constant
 AGENT_NAME = "Krustie"
 
 # Logo next to title with vertical alignment
-logo_path = "images/logo.png"
+logo_path = "/app/images/logo.png"
 
 col1, col2 = st.columns([1, 6], gap="small")
 with col1:
@@ -78,7 +77,7 @@ if st.sidebar.button("Clear Chat"):
     st.rerun()
 
 if "state" not in st.session_state:
-    st.session_state.state: SupervisorState = {
+    st.session_state.state = {
         "messages": [],
         "thread_id": str(uuid.uuid4()),
     }

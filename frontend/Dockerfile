@@ -4,13 +4,12 @@ FROM python:3.12-slim
 WORKDIR /app
 
 # Install dependencies
-COPY requirements.txt .
+COPY agents/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy both frontend and agents code
-COPY . ./frontend
-COPY menus/ ./menus 
-COPY ../agents/ ./agents 
+COPY frontend/user_interface.py .
+COPY agents/ ./agents
 
 
 # Set Python path for imports
@@ -20,4 +19,4 @@ ENV PYTHONPATH=/app
 EXPOSE 8501
 
 # Run frontend app
-CMD ["streamlit", "run", "frontend/user_interface.py"]
+CMD ["streamlit", "run", "user_interface.py"]

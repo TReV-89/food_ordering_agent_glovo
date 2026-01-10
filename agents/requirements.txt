@@ -7,8 +7,9 @@ pdfplumber
 langgraph
 langgraph_supervisor
 google-generativeai
-#langchain_core
+langchain_core
 langsmith
 fastapi[standard]
 streamlit
 langchain_core
+langchain-text-splitters
